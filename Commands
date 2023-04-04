@@ -1,0 +1,14 @@
+1)gpg --gen-key
+  gpg --list-keys
+  gpg --list-secret-keys
+  gpg --edit-key IDENTIFICATOR
+    gpg> expire
+    0
+2)gpg --export --armor > public_key.asc
+  cat public_key.asc
+  gpg --export-secret-key --output private_key.gpg
+3)gpg --encrypt --armor --recipient Olega stroka
+  gpg --symmetric --cipher-algo AES256 --output private_key.asc.gpg --armor private_key.asc
+  gpg --batch --passphrase [poh] --output private_key.asc --decrypt private_key.asc.gpg && gpg --import private_key.asc
+  gpg --decrypt stroka.asc
+
